@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tactica DayZ - Official server website with server listings and donation information">
+    <title>Tactica DayZ - Server Info & Donations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🎮 Tactica DayZ</h1>
+            <p class="tagline">Survive. Adapt. Conquer.</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servers">Servers</a></li>
+                <li><a href="#donate">Donate</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Welcome Section -->
+        <section id="home" class="welcome-section">
+            <h2>Welcome to Tactica DayZ</h2>
+            <p>Join our thriving DayZ community! Experience hardcore survival gameplay with custom modifications, active admins, and a dedicated player base.</p>
+        </section>
+
+        <!-- Server Listings Section -->
+        <section id="servers" class="servers-section">
+            <h2>Our Servers</h2>
+            <div class="server-grid" id="serverList">
+                <!-- Server cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section id="donate" class="donate-section">
+            <h2>Support Our Servers</h2>
+            <div class="donate-content">
+                <p>Help us keep the servers running and improve your gaming experience! Your donations go directly towards:</p>
+                <ul>
+                    <li>Server hosting and maintenance</li>
+                    <li>Performance upgrades</li>
+                    <li>New content and features</li>
+                    <li>Community events and rewards</li>
+                </ul>
+                
+                <div class="donate-buttons">
+                    <!-- PayPal Donation Button -->
+                    <form action="https://www.paypal.com/donate" method="post" target="_blank" class="paypal-form">
+                        <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com">
+                        <input type="hidden" name="item_name" value="Tactica DayZ Server Donation">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <button type="submit" class="donate-button paypal-button">
+                            💳 Donate via PayPal
+                        </button>
+                    </form>
+                    
+                    <p class="donate-note">All donations are voluntary and greatly appreciated! ❤️</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Tactica DayZ. All rights reserved.</p>
+            <p>DayZ is a registered trademark of Bohemia Interactive.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
