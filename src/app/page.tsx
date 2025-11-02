@@ -9,7 +9,8 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
-    setIsLoaded(true)
+    const timer = setTimeout(() => setIsLoaded(true), 100)
+    return () => clearTimeout(timer)
   }, [])
 
   const copyToClipboard = (text: string) => {
@@ -33,6 +34,7 @@ export default function Home() {
               <a href="#features" className="text-gray-300 hover:text-orange-500 transition-colors">Features</a>
               <a href="#server" className="text-gray-300 hover:text-orange-500 transition-colors">Server Info</a>
               <a href="#community" className="text-gray-300 hover:text-orange-500 transition-colors">Community</a>
+              <a href="/admin" className="text-gray-300 hover:text-orange-500 transition-colors">Admin</a>
             </div>
           </div>
         </div>
@@ -149,13 +151,28 @@ export default function Home() {
               <h3 className="text-2xl font-bold text-orange-500 mb-6">Connection Info</h3>
               <div className="space-y-4">
                 <div>
-                  <span className="text-gray-400 block mb-1">Server IP:</span>
+                  <span className="text-gray-400 block mb-1">Chernarus Server IP:</span>
                   <div className="flex items-center gap-2">
                     <code className="bg-gray-900 px-3 py-2 rounded text-orange-400 font-mono text-sm">
-                      play.tacticadayz.com:2302
+                      205.209.101.156:2302
                     </code>
                     <button 
-                      onClick={() => copyToClipboard('play.tacticadayz.com:2302')}
+                      onClick={() => copyToClipboard('205.209.101.156:2302')}
+                      className="text-orange-500 hover:text-orange-400 transition-colors"
+                      title="Copy IP"
+                    >
+                      📋
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  <span className="text-gray-400 block mb-1">Livonia Server IP:</span>
+                  <div className="flex items-center gap-2">
+                    <code className="bg-gray-900 px-3 py-2 rounded text-orange-400 font-mono text-sm">
+                      205.209.101.156:2402
+                    </code>
+                    <button 
+                      onClick={() => copyToClipboard('205.209.101.156:2402')}
                       className="text-orange-500 hover:text-orange-400 transition-colors"
                       title="Copy IP"
                     >
@@ -165,9 +182,20 @@ export default function Home() {
                 </div>
                 <div>
                   <span className="text-gray-400 block mb-1">Steam Connect:</span>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors">
-                    Connect via Steam
-                  </button>
+                  <div className="flex gap-2">
+                    <button 
+                      onClick={() => window.open('steam://connect/205.209.101.156:2302', '_blank')}
+                      className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
+                    >
+                      Chernarus
+                    </button>
+                    <button 
+                      onClick={() => window.open('steam://connect/205.209.101.156:2402', '_blank')}
+                      className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors"
+                    >
+                      Livonia
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
