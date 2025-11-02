@@ -3,51 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tactica DayZ - Official server website with server listings and donation information">
-    <title>Tactica DayZ - Server Info & Donations</title>
+    <meta name="description" content="Tactica DayZ - A Vanilla+ DayZ Server Experience. Join our community for authentic survival gameplay with enhanced features.">
+    <meta name="keywords" content="DayZ, Vanilla+, Survival, Gaming, Multiplayer, Tactica">
+    <meta name="author" content="Tactica DayZ">
+    <title>Tactica DayZ - Vanilla+ Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🎮 Tactica DayZ</h1>
-            <p class="tagline">Survive. Adapt. Conquer.</p>
-        </div>
-    </header>
-
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servers">Servers</a></li>
-                <li><a href="#donate">Donate</a></li>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">�</span>
+                <span class="brand-text">Tactica DayZ</span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#server" class="nav-link">Server Info</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#support" class="nav-link">Support</a></li>
             </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <main class="container">
-        <!-- Welcome Section -->
-        <section id="home" class="welcome-section">
-            <h2>Welcome to Tactica DayZ</h2>
-            <p>Join our thriving DayZ community! Experience hardcore survival gameplay with custom modifications, active admins, and a dedicated player base.</p>
-        </section>
-
-        <!-- Server Listings Section -->
-        <section id="servers" class="servers-section">
-            <h2>Our Servers</h2>
-            <div class="server-grid" id="serverList">
-                <!-- Server cards will be dynamically inserted here -->
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-main">Tactica DayZ</span>
+                    <span class="title-sub">Vanilla+ Experience</span>
+                </h1>
+                <p class="hero-description">
+                    Experience DayZ the way it was meant to be played. Our Vanilla+ server enhances the authentic survival experience 
+                    without compromising the core gameplay that makes DayZ legendary.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="connect-btn">
+                        <span>🎮</span> Connect Now
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('about')">
+                        <span>📖</span> Learn More
+                    </button>
+                </div>
             </div>
-        </section>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="player-count">24</span>
+                    <span class="stat-label">Players Online</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">99.8%</span>
+                    <span class="stat-label">Uptime</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30ms</span>
+                    <span class="stat-label">Avg Ping</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-        <!-- Donation Section -->
-        <section id="donate" class="donate-section">
-            <h2>Support Our Servers</h2>
-            <div class="donate-content">
-                <p>Help us keep the servers running and improve your gaming experience! Your donations go directly towards:</p>
-                <ul>
-                    <li>Server hosting and maintenance</li>
-                    <li>Performance upgrades</li>
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Welcome to Tactica DayZ</h2>
+                <p class="section-subtitle">Where survival meets strategy in the ultimate post-apocalyptic experience</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Tactica DayZ offers a carefully curated Vanilla+ experience that stays true to the DayZ vision while 
+                        adding quality-of-life improvements and tactical elements that enhance gameplay without breaking immersion.
+                    </p>
+                    <p>
+                        Our server focuses on creating meaningful player interactions, strategic survival decisions, and 
+                        authentic post-apocalyptic atmosphere that keeps you coming back for more.
+                    </p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">⚔️</div>
+                            <h3>Authentic Combat</h3>
+                            <p>Vanilla weapon mechanics with tactical improvements</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🏗️</div>
+                            <h3>Enhanced Building</h3>
+                            <p>Expanded base building options while keeping balance</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Strategic Gameplay</h3>
+                            <p>Tactical elements that reward planning and teamwork</p>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌍</div>
+                            <h3>Immersive World</h3>
+                            <p>Carefully maintained atmosphere and realism</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Server Features</h2>
+                <p class="section-subtitle">Enhanced vanilla experience with carefully selected improvements</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon-large">🎮</div>
+                        <h3>Vanilla+ Gameplay</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Core DayZ mechanics preserved</li>
+                        <li>Quality-of-life improvements</li>
+                        <li>Balanced loot economy</li>
+                        <li>No game-breaking mods</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon-large">⚡</div>
+                        <h3>Performance</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>High-performance dedicated server</li>
+                        <li>Low latency connections</li>
+                        <li>Regular maintenance windows</li>
+                        <li>99.8% uptime guarantee</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon-large">👥</div>
+                        <h3>Community</h3>
+                    </div>
+                    <ul class="feature-list">
+                        <li>Active Discord community</li>
+                        <li>Fair and consistent rules</li>
+                        <li>Experienced admin team</li>
+                        <li>Regular community events</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Server Info Section -->
+    <section id="server" class="section server-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Server Information</h2>
+                <p class="section-subtitle">Everything you need to know to get started</p>
+            </div>
+            <div class="server-info-grid">
+                <div class="server-card">
+                    <div class="server-status">
+                        <div class="status-indicator online" id="server-status"></div>
+                        <span class="status-text" id="status-text">Online</span>
+                    </div>
+                    <h3>Tactica DayZ - Vanilla+</h3>
+                    <div class="server-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Server IP:</span>
+                            <span class="detail-value" id="server-ip">Loading...</span>
+                            <button class="copy-btn" onclick="copyToClipboard('server-ip')">📋</button>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Map:</span>
+                            <span class="detail-value">Chernarus</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Players:</span>
+                            <span class="detail-value" id="player-info">24/60</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Time:</span>
+                            <span class="detail-value" id="server-time">Day</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary server-connect-btn" id="server-connect">
+                        Connect to Server
+                    </button>
+                </div>
+                <div class="server-rules">
+                    <h3>Server Rules</h3>
+                    <ul class="rules-list">
+                        <li>No cheating, hacking, or exploiting</li>
+                        <li>No toxic behavior or harassment</li>
+                        <li>Respect other players and admins</li>
+                        <li>No combat logging or ghosting</li>
+                        <li>English in global chat only</li>
+                        <li>No stream sniping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section community-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Join Our Community</h2>
+                <p class="section-subtitle">Connect with fellow survivors and stay updated</p>
+            </div>
+            <div class="community-grid">
+                <a href="#" class="community-card discord-card">
+                    <div class="community-icon">💬</div>
+                    <h3>Discord</h3>
+                    <p>Join our Discord server for real-time chat, server updates, and community events.</p>
+                    <span class="community-cta">Join Discord →</span>
+                </a>
+                <a href="#" class="community-card steam-card">
+                    <div class="community-icon">🎮</div>
+                    <h3>Steam Group</h3>
+                    <p>Follow our Steam group for announcements and connect with other players.</p>
+                    <span class="community-cta">Join Group →</span>
+                </a>
+                <a href="#" class="community-card reddit-card">
+                    <div class="community-icon">📱</div>
+                    <h3>Reddit</h3>
+                    <p>Discuss strategies, share stories, and get help from the community.</p>
+                    <span class="community-cta">Visit Subreddit →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="section support-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Support the Server</h2>
+                <p class="section-subtitle">Help us maintain and improve the Tactica DayZ experience</p>
+            </div>
+            <div class="support-content">
+                <div class="support-info">
+                    <h3>Why Support Us?</h3>
+                    <p>Your donations help us:</p>
+                    <ul class="support-list">
+                        <li>Maintain high-performance dedicated servers</li>
+                        <li>Implement new features and improvements</li>
+                        <li>Host community events and competitions</li>
+                        <li>Provide 24/7 admin support</li>
+                        <li>Keep the server ad-free and player-focused</li>
+                    </ul>
+                </div>
+                <div class="donation-card">
+                    <h3>Make a Donation</h3>
+                    <p>Every contribution helps keep our servers running strong.</p>
+                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                        <input type="hidden" name="cmd" value="_donations" />
+                        <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL@example.com" />
+                        <input type="hidden" name="item_name" value="Tactica DayZ Server Support" />
+                        <input type="hidden" name="currency_code" value="USD" />
+                        <button type="submit" class="btn btn-primary donation-btn">
+                            💝 Donate via PayPal
+                        </button>
+                    </form>
+                    <p class="donation-note">All donations are voluntary and help improve the server experience for everyone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Tactica DayZ</h4>
+                    <p>A Vanilla+ DayZ server experience focused on authentic survival gameplay.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#server">Server Info</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Steam Group</a></li>
+                        <li><a href="#">Reddit</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tactica DayZ. All rights reserved. DayZ is a trademark of Bohemia Interactive.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
                     <li>New content and features</li>
                     <li>Community events and rewards</li>
                 </ul>
