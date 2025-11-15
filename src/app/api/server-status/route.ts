@@ -1,25 +1,23 @@
 import { NextRequest, NextResponse } from 'next/server'
-import * as Gamedig from 'gamedig'
-
+import * as Gamedig from 'gamedig'  // ← Fixed import
 
 // IMPORTANT: force Node.js runtime (not edge)
 export const runtime = 'nodejs'
 
-// Server configuration for server status
-const SERVER_CONFIG = {
-  servers: {
-    chernarus: {
-      ip: '79.127.242.122',
+export async function GET(request: NextRequest) {
+  try {
+    const result = await Gamedig.query({
+      type: 'dayz', // or whatever game
+      host: '79.127.242.122',
       port: 11630,
-      queryPort: 16555,
-      name: 'Tactica DayZ | Chernarus | Vanilla+'
-    },
-    livonia: {
-      ip: '205.209.101.156',
-      port: 2402,
-      queryPort: 2403,
-      name: 'Tactica DayZ | Livonia | Vanilla+'
-    }
+    })
+
+    return NextResponse.json({ online: true, ...result })
+  } catch (error) {
+    return NextResponse.json(
+      { online: false, error: error.message },
+      { status: 500 }
+    )
   }
 }
 
