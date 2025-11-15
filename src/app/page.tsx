@@ -182,10 +182,10 @@ export default function Home() {
                   <span className="text-gray-400 block mb-1">Chernarus Server:</span>
                   <div className="flex items-center gap-2">
                     <code className="bg-gray-900 px-3 py-2 rounded text-orange-400 font-mono text-sm flex-1">
-                      205.209.101.156:2302
+                      79.127.242.122:11630
                     </code>
                     <button 
-                      onClick={() => copyToClipboard('205.209.101.156:2302')}
+                      onClick={() => copyToClipboard('79.127.242.122:11630')}
                       className="text-gray-400 hover:text-orange-400 transition-colors p-2"
                       title="Copy IP"
                     >
@@ -212,7 +212,7 @@ export default function Home() {
                   <span className="text-gray-400 block mb-1">Steam Connect:</span>
                   <div className="flex gap-2">
                     <button 
-                      onClick={() => window.open('steam://connect/205.209.101.156:2302', '_blank')}
+                      onClick={() => window.open('steam://connect/79.127.242.122:11630', '_blank')}
                       className="bg-blue-600/80 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors flex-1"
                     >
                       Chernarus
