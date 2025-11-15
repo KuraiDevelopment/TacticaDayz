@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import Gamedig from 'gamedig'
+import * as Gamedig from 'gamedig'
+
 
 // IMPORTANT: force Node.js runtime (not edge)
 export const runtime = 'nodejs'
