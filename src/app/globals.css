@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,6 +10,11 @@
   --orange-primary: #f97316;
   --orange-secondary: #ea580c;
   --red-primary: #dc2626;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --green-500: #10b981;
+  --red-500: #ef4444;
 }
 
 * {
@@ -22,29 +27,114 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background: var(--background);
+  background: linear-gradient(135deg, #000000 0%, #111827 50%, #000000 100%);
   color: var(--foreground);
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
-/* Custom scrollbar */
+/* Enhanced scrollbar for dark theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #f97316;
+  background: var(--gray-900);
   border-radius: 4px;
 }
 
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--orange-primary), var(--orange-secondary));
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #ea580c;
+  background: linear-gradient(180deg, var(--orange-secondary), var(--red-primary));
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--orange-primary) var(--gray-900);
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: var(--foreground);
+}
+
+/* Focus indicators */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--orange-primary);
+  outline-offset: 2px;
+}
+
+/* Text rendering optimization */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom animations for post-apocalyptic feel */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 20px rgba(249, 115, 22, 0.8);
+  }
+}
+
+/* Utility classes */
+.text-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.flicker {
+  animation: flicker 0.1s ease-in-out infinite alternate;
+}
+
+/* Glass morphism effects */
+.glass-card {
+  background: rgba(31, 41, 55, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(249, 115, 22, 0.1);
+}
+
+/* Status indicators */
+.status-online {
+  color: var(--green-500);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+.status-offline {
+  color: var(--red-500);
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+/* Button enhancements */
+.btn-primary {
+  background: linear-gradient(135deg, var(--orange-primary), var(--red-primary));
+  box-shadow: 0 4px 14px 0 rgba(249, 115, 22, 0.25);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px 0 rgba(249, 115, 22, 0.4);
+  transform: translateY(-2px);
 }

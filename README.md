@@ -157,7 +157,7 @@ const features = [
 
 ## 🔗 Community Links
 
-- **Discord**: [discord.gg/tacticadayz](https://discord.gg/tacticadayz)
+- **Discord**: [discord.gg/tacticadayz](https://discord.gg/mm4mSdq3Pd)
 - **Steam Group**: [Steam Community](https://steamcommunity.com/groups/tacticadayz)
 - **Twitter**: [@tacticadayz](https://twitter.com/tacticadayz)
 - **Forums**: [forums.tacticadayz.com](https://forums.tacticadayz.com)
