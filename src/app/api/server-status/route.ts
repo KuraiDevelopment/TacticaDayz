@@ -8,9 +8,9 @@ export const runtime = 'nodejs'
 const SERVER_CONFIG = {
   servers: {
     chernarus: {
-      ip: '205.209.101.156',
-      port: 2302,
-      queryPort: 2303,
+      ip: '79.127.242.122',
+      port: 11630,
+      queryPort: 16555,
       name: 'Tactica DayZ | Chernarus | Vanilla+'
     },
     livonia: {
