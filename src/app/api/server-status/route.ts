@@ -1,23 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
-import * as Gamedig from 'gamedig'  // ← Fixed import
+import { query as gamedigQuery } from 'gamedig'   // ✅ named import
 
 // IMPORTANT: force Node.js runtime (not edge)
 export const runtime = 'nodejs'
 
-export async function GET(request: NextRequest) {
-  try {
-    const result = await Gamedig.query({
-      type: 'dayz', // or whatever game
-      host: '79.127.242.122',
-      port: 11630,
-    })
-
-    return NextResponse.json({ online: true, ...result })
-  } catch (error) {
-    return NextResponse.json(
-      { online: false, error: error.message },
-      { status: 500 }
-    )
+// Server configuration for server status
+const SERVER_CONFIG = {
+  servers: {
+    chernarus: {
+      ip: '79.127.242.122',
+      port: 11630,      // game port (for display)
+      queryPort: 16555, // <-- make sure this matches steamQueryPort on the server
+      name: 'Tactica DayZ | Chernarus | Vanilla+'
+    }
   }
 }
 
@@ -58,7 +53,7 @@ async function queryServer(serverKey: string): Promise<ServerStatus> {
   }
 
   try {
-    const state = await Gamedig.query({
+    const state = await gamedigQuery({
       type: 'dayz',
       host: serverConfig.ip,
       port: serverConfig.queryPort,
@@ -69,21 +64,20 @@ async function queryServer(serverKey: string): Promise<ServerStatus> {
     const playersList: PlayerInfo[] =
       state.players?.map((p: any) => ({
         name: p.name,
-        // some query providers put time in raw, some don't
         time: p.raw?.time ?? undefined
       })) ?? []
 
     const status: ServerStatus = {
       online: true,
       players: {
-        current: state.players?.length ?? state.raw?.numplayers ?? 0,
-        max: state.maxplayers ?? state.raw?.maxplayers ?? 60,
+        current: state.players?.length ?? (state as any).raw?.numplayers ?? 0,
+        max: state.maxplayers ?? (state as any).raw?.maxplayers ?? 60,
         list: playersList
       },
       name: (state.name as string) || serverConfig.name,
       map: (state.map as string) || (serverKey === 'chernarus' ? 'Chernarus' : 'Livonia'),
-      ping: state.ping ?? 0,
-      version: (state.raw as any)?.version
+      ping: (state as any).ping ?? 0,
+      version: (state as any).raw?.version
     }
 
     cache.set(cacheKey, { data: status, timestamp: Date.now() })
@@ -103,7 +97,6 @@ async function queryServer(serverKey: string): Promise<ServerStatus> {
       error: error?.message || 'Failed to query server'
     }
 
-    // cache error for shorter effective duration (15s)
     cache.set(cacheKey, {
       data: errorStatus,
       timestamp: Date.now() - CACHE_DURATION + 15000
@@ -118,7 +111,6 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const serverType = searchParams.get('server')
 
-    // If specific server requested, return that server's status
     if (serverType && SERVER_CONFIG.servers[serverType as keyof typeof SERVER_CONFIG.servers]) {
       const serverStatus = await queryServer(serverType)
       return NextResponse.json(serverStatus, {
@@ -128,7 +120,6 @@ export async function GET(request: NextRequest) {
       })
     }
 
-    // Otherwise return all servers
     const [chernarusStatus, livoniaStatus] = await Promise.all([
       queryServer('chernarus'),
       queryServer('livonia')
